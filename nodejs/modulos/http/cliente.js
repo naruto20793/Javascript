@@ -1,19 +1,20 @@
-const http = require('http');
+// Importando o módulo HTTP
+//const http = require('http');
+import http from 'http';
 
-// Faz uma requisição GET para o servidor local na porta 8080
-http.get('http://jsonplaceholder.typicode.com/todos/1', (res) => {
-  let data = '';
+http.get('http://jsonplaceholder.typicode.com/posts/1', (res) => {
+    let data = '';
 
-  // Recebe os dados em pedaços
-  res.on('data', (chunk) => {
-    data += chunk;
-  });
+    // Um pedaço de dado foi recebido.
+    res.on('data', (chunk) => {
+        data += chunk;
+    });
 
-  // Quando todos os dados forem recebidos, exibe a resposta no console
-  res.on('end', () => {
-    console.log(data);
-  });
+    // A Resposta inteira foi recebida. Imprime o resultado
+    res.on('end', () => {
+        console.log(JSON.parse(data));
+    });
 
-}).on('error', (err) => {
-  console.error('Erro: ' + err.message);
+}).on("error", (err) => {
+    console.log("Erro: " + err.message);
 });

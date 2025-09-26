@@ -1,16 +1,17 @@
-// Importa o módulo 'fs' do Node.js para manipulação de arquivos
-const fs = require('fs');
+// Importa o módulo 'fs' (File System)
+//const fs = require('fs')
 
-// Lê o conteúdo do arquivo 'example.txt' de forma assíncrona
-fs.readFile('example.txt', 'utf8', (err, data) => {
-  // Se ocorrer um erro na leitura, exibe a mensagem de erro no console
-  if (err) {
-    console.error('Erro ao ler o arquivo', err);
-    return;
-  }
-  // Se não houver erro, exibe o conteúdo do arquivo no console
-  console.log('Conteúdo do arquivo:', data);
-});
+import fs from 'fs'
+// Lê o arquivo 'example.txt' de forma assíncrona, usando codificação 'utf8'
+fs.readFile('example.txt', 'utf8', (erro, conteudo_do_arquivo) => {
+    // Se ocorrer um erro ao ler o arquivo, exibe a mensagem de erro no console
+    if (erro) {
+        console.error('Error reading file:', erro)
+        return // Encerra a execução da função de callback
+    }
+    // Se não houver erro, exibe o conteúdo do arquivo no console
+    console.log('File contents:', conteudo_do_arquivo)
+})
 
-// Esta mensagem aparece antes da leitura do arquivo, pois readFile é assíncrono
-console.log('Esta mensagem aparece primeiro.');
+// Exibe uma mensagem no console antes da leitura do arquivo ser concluída
+console.log('Essa mensagem aparece primeiro, antes do conteúdo do arquivo ser lido.')
