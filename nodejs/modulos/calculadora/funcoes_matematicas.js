@@ -1,9 +1,5 @@
-export function calcularIdade(anoAtual, anoNasc) {
-    return anoAtual - anoNasc;
-}
-
-export function somar(a, b) {
-    return a + b;
+export function somar(num1,num2,num3) {
+    return num1 + num2 + num3;
 }
 
 export function subtrair(a, b) {
@@ -15,8 +11,8 @@ export function multiplicar(a, b) {
 }
 
 export function dividir(a, b) {
-    if (b === 0) {
-        throw new Error('Divisão por zero não é permitida.');
-    }
+    if (b === 0){
+        return "Erro: Divisão por zero!";
+    } 
     return a / b;
 }
