@@ -10,8 +10,8 @@ module.exports = {
   },
 
   saudacao: (req, res) => {
-    const { nome, idade } = req.body;
-    const mensagem = saudacaoModel.gerarMensagemPersonalizada(nome, idade);
+    const { nome, idade, time } = req.body;
+    const mensagem = saudacaoModel.gerarMensagemPersonalizada(nome, idade, time);
     res.send(`<h1>${mensagem}</h1>`);
   }
 };

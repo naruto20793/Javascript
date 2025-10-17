@@ -1,11 +1,18 @@
-const fs = require('fs');
+// importando o módulo fs (file system)
+//const fs = require('fs');
 
-fs.readFile('exemplo.txt', 'utf8', (erro, dados) => {
-    if (erro) {
-        console.error('Erro ao ler o arquivo:', erro);
+import fs from 'fs';
+
+// lendo um arquivo de forma assíncrona
+fs.readFile('example.txt', 'utf8', (err, data) => { // callback
+    // tratando erros
+    if (err) {
+        console.error('Erro ao ler o arquivo:', err);
         return;
     }
-    console.log('Conteúdo do arquivo:', dados);
-});
+    // exibindo o conteúdo do arquivo no console
+    console.log('Conteúdo do arquivo:', data);
+}); 
 
+// mensagem que será exibida antes da leitura do arquivo
 console.log('Esta mensagem aparece primeiro.');
