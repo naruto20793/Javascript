@@ -1,17 +1,16 @@
 module.exports = {
-  gerarMensagemPersonalizada: (nome, idade, email) => {
-    let faixaEtaria;
+  gerarMensagemLogin: (nome, email, senha) => {
+    const n = (nome || '').trim();
+    const acesso = (email === 'guilherme@gmail.com' && senha === '1234') ? 'liberado' : 'negado';
 
-    if (idade < 12) {
-      faixaEtaria = "criança";
-    } else if (idade < 18) {
-      faixaEtaria = "adolescente";
-    } else if (idade < 60) {
-      faixaEtaria = "adulto";
-    } else {
-      faixaEtaria = "idoso";
+    if (acesso === 'liberado' && n && email && email.trim()) {
+      return `Olá ${n}, você está logado com o e-mail ${email.trim()}! Acesso: ${acesso}`;
     }
+    return `Acesso: ${acesso}`;
+  },
 
-    return `Olá, ${nome}! Você é um(a) ${faixaEtaria} e é usuario do email: ${email}`;
+  // função adicional para verificar o status de acesso sem montar a mensagem HTML
+  verificarAcesso: (email, senha) => {
+    return (email === 'guilherme@gmail.com' && senha === '1234') ? 'liberado' : 'negado';
   }
 };

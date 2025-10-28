@@ -1,8 +1,10 @@
-const express = require('express');
-const router = express.Router();
+var express = require('express');
+var router = express.Router();
 const clientesController = require('../controllers/clientesController');
 
-router.get('/', clientesController.clientes);
-router.get('/formularioclientes', clientesController.formulario);
+/* GET users listing. */
+router.get('/',clientesController.clientes);
+router.get('/login',clientesController.login);
+router.post('/logado', clientesController.logado);
 
 module.exports = router;
