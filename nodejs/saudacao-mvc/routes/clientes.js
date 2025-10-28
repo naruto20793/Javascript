@@ -3,7 +3,6 @@ const router = express.Router();
 const clientesController = require('../controllers/clientesController');
 
 router.get('/', clientesController.clientes);
-router.get('/login', clientesController.login);
-router.post('/logado', clientesController.logado);
+router.get('/formularioclientes', clientesController.formulario);
 
 module.exports = router;

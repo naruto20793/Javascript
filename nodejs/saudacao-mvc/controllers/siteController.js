@@ -1,3 +1,4 @@
+const { use } = require('react');
 const saudacaoModel = require('../models/saudacaoModel');
 
 module.exports = {
@@ -9,13 +10,13 @@ module.exports = {
     res.sendFile('formulario.html', { root: './views' });
   },
 
-  usuarios: (req, res) => {
-    res.sendFile('usuarios.html', { root: './views' });
-  },
-
   saudacao: (req, res) => {
     const { nome, idade, time } = req.body;
     const mensagem = saudacaoModel.gerarMensagemPersonalizada(nome, idade, time);
     res.send(`<h1>${mensagem}</h1>`);
-  }
+  },
+
+  usuarios: (req, res) => {
+    res.sendFile('usuarios.html', { root: './views' });
+  },
 };
